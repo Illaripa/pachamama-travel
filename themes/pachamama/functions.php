@@ -221,20 +221,53 @@ function pachamama_options_page() {
 add_action('admin_menu', 'pachamama_options_page');
 
 function pachamama_register_settings() {
+    // Hero
     register_setting('pachamama_options', 'pachamama_hero_titulo');
     register_setting('pachamama_options', 'pachamama_hero_subtitulo');
     register_setting('pachamama_options', 'pachamama_hero_badge');
+    // Stats
     register_setting('pachamama_options', 'pachamama_stat_viajeros');
     register_setting('pachamama_options', 'pachamama_stat_anos');
     register_setting('pachamama_options', 'pachamama_stat_valoracion');
     register_setting('pachamama_options', 'pachamama_stat_recomiendan');
+    // Contacto
     register_setting('pachamama_options', 'pachamama_email');
     register_setting('pachamama_options', 'pachamama_whatsapp');
     register_setting('pachamama_options', 'pachamama_oficina');
+    // Redes
     register_setting('pachamama_options', 'pachamama_instagram');
     register_setting('pachamama_options', 'pachamama_facebook');
     register_setting('pachamama_options', 'pachamama_youtube');
     register_setting('pachamama_options', 'pachamama_tiktok');
+    // Problem section
+    register_setting('pachamama_options', 'pachamama_problem_tag');
+    register_setting('pachamama_options', 'pachamama_problem_titulo');
+    register_setting('pachamama_options', 'pachamama_problem_subtitulo');
+    register_setting('pachamama_options', 'pachamama_problem_1_titulo');
+    register_setting('pachamama_options', 'pachamama_problem_1_texto');
+    register_setting('pachamama_options', 'pachamama_problem_2_titulo');
+    register_setting('pachamama_options', 'pachamama_problem_2_texto');
+    register_setting('pachamama_options', 'pachamama_problem_3_titulo');
+    register_setting('pachamama_options', 'pachamama_problem_3_texto');
+    // Steps
+    register_setting('pachamama_options', 'pachamama_steps_titulo');
+    register_setting('pachamama_options', 'pachamama_steps_subtitulo');
+    register_setting('pachamama_options', 'pachamama_step_1_titulo');
+    register_setting('pachamama_options', 'pachamama_step_1_texto');
+    register_setting('pachamama_options', 'pachamama_step_2_titulo');
+    register_setting('pachamama_options', 'pachamama_step_2_texto');
+    register_setting('pachamama_options', 'pachamama_step_3_titulo');
+    register_setting('pachamama_options', 'pachamama_step_3_texto');
+    // CTA final
+    register_setting('pachamama_options', 'pachamama_cta_titulo');
+    register_setting('pachamama_options', 'pachamama_cta_subtitulo');
+    register_setting('pachamama_options', 'pachamama_cta_feature_1');
+    register_setting('pachamama_options', 'pachamama_cta_feature_2');
+    register_setting('pachamama_options', 'pachamama_cta_feature_3');
+    register_setting('pachamama_options', 'pachamama_cta_boton');
+    // Footer
+    register_setting('pachamama_options', 'pachamama_footer_descripcion');
+    register_setting('pachamama_options', 'pachamama_footer_copyright');
 }
 add_action('admin_init', 'pachamama_register_settings');
 
@@ -269,6 +302,42 @@ function pachamama_options_html() {
                 <tr><th>Facebook</th><td><input type="url" name="pachamama_facebook" value="<?php echo esc_attr(get_option('pachamama_facebook', '#')); ?>" class="regular-text"></td></tr>
                 <tr><th>YouTube</th><td><input type="url" name="pachamama_youtube" value="<?php echo esc_attr(get_option('pachamama_youtube', '#')); ?>" class="regular-text"></td></tr>
                 <tr><th>TikTok</th><td><input type="url" name="pachamama_tiktok" value="<?php echo esc_attr(get_option('pachamama_tiktok', '#')); ?>" class="regular-text"></td></tr>
+            </table>
+            <h2>Seccion "Por que elegirnos"</h2>
+            <table class="form-table">
+                <tr><th>Etiqueta</th><td><input type="text" name="pachamama_problem_tag" value="<?php echo esc_attr(get_option('pachamama_problem_tag', 'Por que elegirnos')); ?>" class="regular-text"></td></tr>
+                <tr><th>Titulo</th><td><input type="text" name="pachamama_problem_titulo" value="<?php echo esc_attr(get_option('pachamama_problem_titulo', 'Viajar a Peru puede ser abrumador')); ?>" class="large-text"></td></tr>
+                <tr><th>Subtitulo</th><td><textarea name="pachamama_problem_subtitulo" rows="2" class="large-text"><?php echo esc_textarea(get_option('pachamama_problem_subtitulo', 'Sabemos lo que se siente. Por eso creamos experiencias donde tu solo te preocupas de disfrutar.')); ?></textarea></td></tr>
+                <tr><th>Punto 1 - Titulo</th><td><input type="text" name="pachamama_problem_1_titulo" value="<?php echo esc_attr(get_option('pachamama_problem_1_titulo', 'Planificacion interminable')); ?>" class="regular-text"></td></tr>
+                <tr><th>Punto 1 - Texto</th><td><textarea name="pachamama_problem_1_texto" rows="2" class="large-text"><?php echo esc_textarea(get_option('pachamama_problem_1_texto', 'Horas investigando rutas, hoteles, transportes... solo para descubrir que la informacion online esta desactualizada. Nosotros nos encargamos de cada detalle.')); ?></textarea></td></tr>
+                <tr><th>Punto 2 - Titulo</th><td><input type="text" name="pachamama_problem_2_titulo" value="<?php echo esc_attr(get_option('pachamama_problem_2_titulo', 'Tours genericos y masivos')); ?>" class="regular-text"></td></tr>
+                <tr><th>Punto 2 - Texto</th><td><textarea name="pachamama_problem_2_texto" rows="2" class="large-text"><?php echo esc_textarea(get_option('pachamama_problem_2_texto', 'Grupos de 40 personas, con prisa y sin alma. Nuestros grupos son de maximo 12 personas, con guias locales que conocen cada rincon secreto.')); ?></textarea></td></tr>
+                <tr><th>Punto 3 - Titulo</th><td><input type="text" name="pachamama_problem_3_titulo" value="<?php echo esc_attr(get_option('pachamama_problem_3_titulo', 'Falta de profundidad espiritual')); ?>" class="regular-text"></td></tr>
+                <tr><th>Punto 3 - Texto</th><td><textarea name="pachamama_problem_3_texto" rows="2" class="large-text"><?php echo esc_textarea(get_option('pachamama_problem_3_texto', 'Quieres mas que fotos turisticas. Buscas una conexion real con la tierra, las tradiciones y la sabiduria ancestral. Eso es exactamente lo que ofrecemos.')); ?></textarea></td></tr>
+            </table>
+            <h2>Seccion "Como funciona"</h2>
+            <table class="form-table">
+                <tr><th>Titulo</th><td><input type="text" name="pachamama_steps_titulo" value="<?php echo esc_attr(get_option('pachamama_steps_titulo', 'Tu viaje en tres pasos')); ?>" class="large-text"></td></tr>
+                <tr><th>Subtitulo</th><td><textarea name="pachamama_steps_subtitulo" rows="2" class="large-text"><?php echo esc_textarea(get_option('pachamama_steps_subtitulo', 'Sin complicaciones. Nos encargamos de todo para que tu solo vivas la experiencia.')); ?></textarea></td></tr>
+                <tr><th>Paso 1 - Titulo</th><td><input type="text" name="pachamama_step_1_titulo" value="<?php echo esc_attr(get_option('pachamama_step_1_titulo', 'Elige tu aventura')); ?>" class="regular-text"></td></tr>
+                <tr><th>Paso 1 - Texto</th><td><textarea name="pachamama_step_1_texto" rows="2" class="large-text"><?php echo esc_textarea(get_option('pachamama_step_1_texto', 'Selecciona el paquete que resuene contigo. Si ninguno encaja, creamos uno a tu medida.')); ?></textarea></td></tr>
+                <tr><th>Paso 2 - Titulo</th><td><input type="text" name="pachamama_step_2_titulo" value="<?php echo esc_attr(get_option('pachamama_step_2_titulo', 'Preparamos todo')); ?>" class="regular-text"></td></tr>
+                <tr><th>Paso 2 - Texto</th><td><textarea name="pachamama_step_2_texto" rows="2" class="large-text"><?php echo esc_textarea(get_option('pachamama_step_2_texto', 'Hoteles, transportes, guias, permisos, comidas. Tu solo empacas tu maleta.')); ?></textarea></td></tr>
+                <tr><th>Paso 3 - Titulo</th><td><input type="text" name="pachamama_step_3_titulo" value="<?php echo esc_attr(get_option('pachamama_step_3_titulo', 'Vive la experiencia')); ?>" class="regular-text"></td></tr>
+                <tr><th>Paso 3 - Texto</th><td><textarea name="pachamama_step_3_texto" rows="2" class="large-text"><?php echo esc_textarea(get_option('pachamama_step_3_texto', 'Desde que aterrizas hasta que regresas a casa. Sin preocupaciones, solo magia.')); ?></textarea></td></tr>
+            </table>
+            <h2>CTA Final</h2>
+            <table class="form-table">
+                <tr><th>Titulo</th><td><input type="text" name="pachamama_cta_titulo" value="<?php echo esc_attr(get_option('pachamama_cta_titulo', 'Peru esta llamandote')); ?>" class="large-text"></td></tr>
+                <tr><th>Subtitulo</th><td><textarea name="pachamama_cta_subtitulo" rows="2" class="large-text"><?php echo esc_textarea(get_option('pachamama_cta_subtitulo', 'Reserva hoy y asegura tu lugar. Los grupos son pequenos y se llenan rapido.')); ?></textarea></td></tr>
+                <tr><th>Ventaja 1</th><td><input type="text" name="pachamama_cta_feature_1" value="<?php echo esc_attr(get_option('pachamama_cta_feature_1', 'Grupos max. 12 personas')); ?>" class="regular-text"></td></tr>
+                <tr><th>Ventaja 2</th><td><input type="text" name="pachamama_cta_feature_2" value="<?php echo esc_attr(get_option('pachamama_cta_feature_2', 'Cancelacion gratuita 60 dias')); ?>" class="regular-text"></td></tr>
+                <tr><th>Ventaja 3</th><td><input type="text" name="pachamama_cta_feature_3" value="<?php echo esc_attr(get_option('pachamama_cta_feature_3', 'Guias locales expertos')); ?>" class="regular-text"></td></tr>
+                <tr><th>Texto del boton</th><td><input type="text" name="pachamama_cta_boton" value="<?php echo esc_attr(get_option('pachamama_cta_boton', 'Reservar Mi Viaje')); ?>" class="regular-text"></td></tr>
+            </table>
+            <h2>Footer</h2>
+            <table class="form-table">
+                <tr><th>Descripcion</th><td><textarea name="pachamama_footer_descripcion" rows="2" class="large-text"><?php echo esc_textarea(get_option('pachamama_footer_descripcion', 'Tours espirituales y culturales en Peru. Conectando viajeros con la sabiduria ancestral de los Andes desde 2014.')); ?></textarea></td></tr>
             </table>
             <?php submit_button('Guardar Cambios'); ?>
         </form>

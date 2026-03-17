@@ -4,7 +4,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="nav-logo"><?php bloginfo('name'); ?></a>
-                <p>Tours espirituales y culturales en Peru. Conectando viajeros con la sabiduria ancestral de los Andes desde 2014.</p>
+                <p><?php echo esc_html(pm('footer_descripcion', 'Tours espirituales y culturales en Peru. Conectando viajeros con la sabiduria ancestral de los Andes desde 2014.')); ?></p>
                 <div class="footer-social">
                     <?php if ($ig = pm('instagram', '#')): ?>
                     <a href="<?php echo esc_url($ig); ?>" aria-label="Instagram" target="_blank" rel="noopener">
